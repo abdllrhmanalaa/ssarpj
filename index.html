@@ -1,0 +1,421 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <title>GeoJSONLayer | Sample | ArcGIS Maps SDK for JavaScript 4.30</title>
+
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+  </style>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.30/esri/themes/light/main.css" />
+  <script src="https://js.arcgis.com/4.30/"></script>
+
+  <script>
+    require(["esri/Map", "esri/layers/GeoJSONLayer", "esri/views/MapView","esri/widgets/Legend"], (
+      Map,
+      GeoJSONLayer,
+      MapView,Legend
+    ) => {
+      // If GeoJSON files are not on the same domain as your website, a CORS enabled server
+      // or a proxy is required.
+      const geojson = {
+ "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 0,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.55333876314685,
+          28.46810042351147
+        ]
+      },
+      "properties": {
+        "FID": 0,
+        "x": 260445.6405,
+        "y": 3151497.0289,
+        "z": 768.9583
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 1,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.55333876314685,
+          28.46810042351147
+        ]
+      },
+      "properties": {
+        "FID": 1,
+        "x": 260445.6405,
+        "y": 3151497.0289,
+        "z": 768.9583
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 2,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.55348809891064,
+          28.467922180776018
+        ]
+      },
+      "properties": {
+        "FID": 2,
+        "x": 260459.8646,
+        "y": 3151476.9749,
+        "z": 769.008
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 3,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.553474551454165,
+          28.467937280951944
+        ]
+      },
+      "properties": {
+        "FID": 3,
+        "x": 260458.5718,
+        "y": 3151478.6756,
+        "z": 769.0038
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 4,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.51053223384084,
+          28.43324292487223
+        ]
+      },
+      "properties": {
+        "FID": 4,
+        "x": 256172.9605,
+        "y": 3147719.567,
+        "z": 760.7789
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 5,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.5479488277398,
+          28.466189263639222
+        ]
+      },
+      "properties": {
+        "FID": 5,
+        "x": 259913.4074,
+        "y": 3151295.9629,
+        "z": 769.9226
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 6,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.568875546851274,
+          28.46687456308169
+        ]
+      },
+      "properties": {
+        "FID": 6,
+        "x": 261964.6117,
+        "y": 3151330.2626,
+        "z": 772.1491
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 7,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.55042571952255,
+          28.466013849803424
+        ]
+      },
+      "properties": {
+        "FID": 7,
+        "x": 260155.611,
+        "y": 3151271.5711,
+        "z": 770.726
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 8,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.55464113153382,
+          28.452884992411157
+        ]
+      },
+      "properties": {
+        "FID": 8,
+        "x": 260538.877,
+        "y": 3149807.9827,
+        "z": 769.0995
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 9,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.55153516168381,
+          28.37586599449152
+        ]
+      },
+      "properties": {
+        "FID": 9,
+        "x": 260060.9282,
+        "y": 3141277.5773,
+        "z": 770.1217
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 10,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.520477375587134,
+          28.42806950723843
+        ]
+      },
+      "properties": {
+        "FID": 10,
+        "x": 257135.5355,
+        "y": 3147126.0188,
+        "z": 764.141
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 11,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.53800518141164,
+          28.37162900245525
+        ]
+      },
+      "properties": {
+        "FID": 11,
+        "x": 258725.003,
+        "y": 3140834.9871,
+        "z": 768.4902
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 12,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.52135810378889,
+          28.395479694158627
+        ]
+      },
+      "properties": {
+        "FID": 12,
+        "x": 257147.4315,
+        "y": 3143512.02,
+        "z": 768.6228
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 13,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.56379804275843,
+          28.370851673766115
+        ]
+      },
+      "properties": {
+        "FID": 13,
+        "x": 261251.8022,
+        "y": 3140697.4397,
+        "z": 774.2605
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 14,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.5639393783824,
+          28.37089901564236
+        ]
+      },
+      "properties": {
+        "FID": 14,
+        "x": 261265.7638,
+        "y": 3140702.4068,
+        "z": 774.4849
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 15,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.560458509898496,
+          28.477416733959185
+        ]
+      },
+      "properties": {
+        "FID": 15,
+        "x": 261163.9451,
+        "y": 3152515.4476,
+        "z": 766.1631
+      }
+    }
+  ]
+};
+
+// create a new blob from geojson featurecollection
+const blob = new Blob([JSON.stringify(geojson)], {
+  type: "application/json"
+});
+
+// URL reference to the blob
+const url = URL.createObjectURL(blob);
+// create new geojson layer using the blob url
+const layer = new GeoJSONLayer({
+  url
+});
+      // Paste the url into a browser's address bar to download and view the attributes
+      // in the GeoJSON file. These attributes include:
+      // * mag - magnitude
+      // * type - earthquake or other event such as nuclear test
+      // * place - location of the event
+      // * time - the time of the event
+      // Use the Arcade Date() function to format time field into a human-readable format
+
+      const template = {
+        title: "Earthquake Info",
+        content: "Magnitude {mag} {type} hit {place} on {time}",
+        fieldInfos: [
+          {
+            fieldName: 'time',
+            format: {
+              dateFormat: 'short-date-short-time'
+            }
+          }
+        ]
+      };
+
+      const renderer = {
+        type: "simple",
+        field: "x",
+        symbol: {
+          type: "simple-marker",
+          color: "#ff00ffff",
+          outline: {
+            color: "#0022ffff",
+           width :"5px"
+
+          }
+        },
+        visualVariables: [{
+          type: "size",
+          field: "x",
+          stops: [{
+              value: 2.5,
+              size: "4px"
+            },
+            {
+              value: 8  ,
+              size: "30px",
+              
+            }
+          ]
+        }]
+      };
+
+      const geojsonLayer = new GeoJSONLayer({
+        url: url,
+        copyright: "USGS Earthquakes",
+        popupTemplate: template,
+        renderer: renderer,
+        orderBy: {
+          field: "x"
+        }
+      });
+
+      const map = new Map({
+        basemap: "dark-gray",
+        layers: [geojsonLayer]
+      });
+
+      const view = new MapView({
+        container: "viewDiv",
+        center: [36.55464113153382, 28.37586599449152],
+        zoom: 10,
+        map: map
+      
+    });
+
+   
+
+
+
+   
+          // get the first layer in the collection of operational layers in the WebMap
+          // when the resources in the MapView have loaded.
+          var legend = new Legend({
+          view: view,
+        });
+
+        view.ui.add(legend, "bottom-right");
+    
+    
+      
+      
+    
+   
+
+
+    });
+
+  </script>
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+</body>
+
+</html>
